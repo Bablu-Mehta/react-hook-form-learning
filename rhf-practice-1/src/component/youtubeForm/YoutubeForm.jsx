@@ -23,7 +23,7 @@ function YoutubeForm() {
             },
           })}
         />
-        <p>{errors.username?.message}</p>
+        <p className="error">{errors.username?.message}</p>
 
         <label htmlFor="email">Email</label>
         <input
@@ -51,17 +51,7 @@ function YoutubeForm() {
             },
           })}
         />
-        <p>{errors.email?.message}</p>
-
-        <label htmlFor="channel">Channel Name</label>
-        <input
-          type="text"
-          id="channel"
-          {...register("channel", {
-            required: "channel is required",
-          })}
-        />
-        <p>{errors.channel?.message}</p>
+        <p className="error">{errors.email?.message}</p>
 
         <button>Submit</button>
       </form>

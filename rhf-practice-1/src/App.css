@@ -23,7 +23,6 @@
   margin: 0;
   width: 90%;
   padding: 12px 18px;
-  margin-bottom: 20px;
   border: 1px solid rgb(87, 87, 87);
   margin-top: 10px;
 }
@@ -40,4 +39,9 @@
   background: black;
   color: white;
   border-radius: 24px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
 }
