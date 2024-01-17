@@ -5,38 +5,39 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.youtubeForm-container {
+  margin: 10% auto;
+  width: 500px;
+  background: linear-gradient(to right,rgb(228, 227, 227), white, grey, black);
+  border: 1px solid black;
+  padding: 20px 40px;
+  box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.youtubeForm-container > form {
+  text-align: left;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.youtubeForm-container > form > input {
+  margin: 0;
+  width: 90%;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  border: none;
+  margin-top: 10px;
 }
 
-.card {
-  padding: 2em;
+.youtubeForm-container > form > label {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.read-the-docs {
-  color: #888;
+.youtubeForm-container > form > button {
+  border: none;
+  padding: 8px 20px;
+  font-size: 18px;
+  background: black;
+  color: white;
+  border-radius: 24px;
 }
