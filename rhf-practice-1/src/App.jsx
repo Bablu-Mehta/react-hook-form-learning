@@ -1,10 +1,10 @@
 import "./App.css";
-import YoutubeForm from "./component/youtubeForm/YoutubeForm";
+import ReactHookForm from "./component/form/ReactHookForm";
 
 function App() {
   return (
     <>
-      <YoutubeForm />
+      <ReactHookForm />
     </>
   );
 }

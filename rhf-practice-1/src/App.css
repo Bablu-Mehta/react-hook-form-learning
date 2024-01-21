@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.youtubeForm-container {
+.Form-container {
   margin: 10% auto;
   width: 500px;
   background: linear-gradient(to right, rgb(228, 227, 227), white, grey, black);
@@ -14,12 +14,12 @@
   box-sizing: border-box;
 }
 
-.youtubeForm-container > form {
+.Form-container > form {
   text-align: left;
   margin: 0;
 }
 
-.youtubeForm-container > form > input {
+.Form-container > form > input {
   margin: 0;
   width: 90%;
   padding: 12px 18px;
@@ -27,12 +27,12 @@
   margin-top: 10px;
 }
 
-.youtubeForm-container > form > label {
+.Form-container > form > label {
   font-size: 20px;
   font-weight: 600;
 }
 
-.youtubeForm-container > form > button {
+.Form-container > form > button {
   border: none;
   padding: 8px 20px;
   font-size: 18px;
