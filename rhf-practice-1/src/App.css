@@ -45,3 +45,21 @@
   color: red;
   font-size: 14px;
 }
+
+.gender {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.gender > span {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gender-input {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

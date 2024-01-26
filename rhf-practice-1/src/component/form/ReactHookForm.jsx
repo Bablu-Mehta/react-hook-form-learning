@@ -2,14 +2,19 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../formValidationSchema";
+import { DevTool } from "@hookform/devtools";
 
 function ReactHookForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
+    defaultValues: {
+      username: "Batman",
+    },
   });
 
   function onSubmit(data, e) {
@@ -18,30 +23,60 @@ function ReactHookForm() {
   }
 
   return (
-    <div className="Form-container">
-      <form onSubmit={handleSubmit((data, e) => onSubmit(data, e))} noValidate>
-        <label htmlFor="username">Username</label>
-        <input type="text" id="username" {...register("username")} />
-        <p className="error">{errors.username?.message}</p>
+    <>
+      <div className="Form-container">
+        <form
+          onSubmit={handleSubmit((data, e) => onSubmit(data, e))}
+          noValidate
+        >
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" {...register("username")} />
+          <p className="error">{errors.username?.message}</p>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" {...register("email")} />
-        <p className="error">{errors.email?.message}</p>
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" {...register("email")} />
+          <p className="error">{errors.email?.message}</p>
 
-        <label htmlFor="email">Password</label>
-        <input type="password" id="password" {...register("password")} />
-        <p className="error">{errors.password?.message}</p>
+          <label htmlFor="email">Password</label>
+          <input type="password" id="password" {...register("password")} />
+          <p className="error">{errors.password?.message}</p>
 
-        <label htmlFor="email">Confirm Password</label>
-        <input
-          type="password"
-          id="consform-password"
-          {...register("conformPassword")}
-        />
-        <p className="error">{errors.conformPassword?.message}</p>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+          <label htmlFor="email">Confirm Password</label>
+          <input
+            type="password"
+            id="consform-password"
+            {...register("conformPassword")}
+          />
+          <p className="error">{errors.conformPassword?.message}</p>
+
+          <div className="gender">
+            <span>Gender:</span>
+            <div className="gender-input">
+              <input
+                type="radio"
+                value="male"
+                {...register("gender")}
+              />
+              <label htmlFor="gender">Male</label>
+            </div>
+
+            <div className="gender-input">
+              <input
+                type="radio"
+                value="female"
+                {...register("gender")}
+              />
+              <label htmlFor="gender">Female</label>
+            </div>
+            <p className="error">{errors.gender?.message}</p>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <DevTool control={control} />
+    </>
+
     // <div className="Form-container">
     //   <form onSubmit={handleSubmit(onSubmit)} noValidate>
     //     <label htmlFor="username">Username</label>
