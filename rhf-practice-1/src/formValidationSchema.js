@@ -21,4 +21,5 @@ export const formSchema = yup.object().shape({
   conformPassword: yup
     .string()
     .oneOf([yup.ref("password"), null], "The Password did not matach "),
+  country: yup.string().required("Country is Required"),
 });
