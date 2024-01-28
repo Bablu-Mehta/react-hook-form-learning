@@ -56,7 +56,7 @@ function ReactHookForm() {
 
           <div className="country">
             <label htmlFor="country">Country: </label>
-            {/* <p>{countryCode ? countryCode : "+0"}</p> */}
+            <p>{countryCode ? countryCode : "+0"}</p>
             <select
               {...register("country")}
               onChange={handleCountryChange}
