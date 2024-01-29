@@ -204,3 +204,9 @@ form > button {
   justify-content: center;
   transform: translate(150%, 0);
 }
+
+.zipCode > input::-webkit-outer-spin-button,
+.zipCode > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
