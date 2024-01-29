@@ -1,0 +1,206 @@
+.formContainer {
+  width: 550px;
+  margin: 100px auto;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer > p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 40px;
+}
+
+.header {
+  padding: 40px;
+  border-bottom: 1px solid grey;
+}
+
+.header > h1 {
+  margin: 0;
+  font-weight: 700;
+  color: rgb(114, 114, 114);
+}
+
+.header > p {
+  margin: 0;
+  color: rgb(105, 105, 105);
+}
+
+form {
+  padding: 10px;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+}
+
+.nameContainer > p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nameInputContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.nameInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 7px;
+}
+.input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid rgb(114, 114, 114);
+}
+
+.nameInput > label {
+  font-size: 14px;
+  color: rgb(148, 144, 144);
+}
+
+.emailContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.emailContainer > input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid rgb(114, 114, 114);
+  width: 50%;
+}
+
+.emailContainer > label {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(63, 63, 63);
+}
+
+.phoneContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phoneContainer > input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 2px solid rgb(114, 114, 114);
+  width: 50%;
+}
+
+.phoneContainer > label {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(63, 63, 63);
+}
+
+.phoneContainer > input::-webkit-outer-spin-button,
+.phoneContainer > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.addressContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.addressContainer > p {
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.addressStreet {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.addressStreet > label {
+  font-size: 14px;
+  color: rgb(148, 144, 144);
+}
+
+.stateAddress {
+  display: flex;
+  gap: 10px;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.city > label {
+  font-size: 14px;
+  color: rgb(148, 144, 144);
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.state > label {
+  font-size: 14px;
+  color: rgb(148, 144, 144);
+}
+
+.zipCode {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.zipCode > input {
+  width: 50%;
+}
+
+.zipCode > label {
+  font-size: 14px;
+  color: rgb(148, 144, 144);
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.textArea > label {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+form > button {
+  border: none;
+  background-color: rgb(106, 196, 106);
+  padding: 10px 20px;
+  color: #fffdfd;
+  font-size: 20px;
+  border-radius: 20px;
+  justify-content: center;
+  transform: translate(150%, 0);
+}

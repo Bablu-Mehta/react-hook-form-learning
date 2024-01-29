@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import EmailSignUp from "./components/EmailSignUp";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     
+      <EmailSignUp />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
