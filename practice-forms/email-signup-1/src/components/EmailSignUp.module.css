@@ -1,5 +1,5 @@
 .formContainer {
-  width: 550px;
+  width: 600px;
   margin: 100px auto;
   background-color: #fff;
   color: #000;
@@ -71,8 +71,14 @@ form {
   color: rgb(148, 144, 144);
 }
 
-.emailContainer {
+.contactContainer {
+  display: flex;
   padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.emailContainer {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -82,7 +88,6 @@ form {
   padding: 10px;
   border-radius: 6px;
   border: 2px solid rgb(114, 114, 114);
-  width: 50%;
 }
 
 .emailContainer > label {
@@ -92,7 +97,6 @@ form {
 }
 
 .phoneContainer {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -102,7 +106,6 @@ form {
   padding: 10px;
   border-radius: 6px;
   border: 2px solid rgb(114, 114, 114);
-  width: 50%;
 }
 
 .phoneContainer > label {
@@ -208,5 +211,11 @@ form > button {
 .zipCode > input::-webkit-outer-spin-button,
 .zipCode > input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  margin: 0;
+}
+
+.error {
+  font-size: 14px;
+  color: red;
   margin: 0;
 }

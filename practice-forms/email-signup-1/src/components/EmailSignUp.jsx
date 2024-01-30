@@ -3,13 +3,11 @@ import classes from "./EmailSignUp.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
-import { DevTool } from "@hookform/devtools";
 
 const EmailSignUp = () => {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -43,6 +41,7 @@ const EmailSignUp = () => {
                   {...register("firstName")}
                 />
                 <label htmlFor="firstName">First Name</label>
+                <p className={classes.error}>{errors.firstName?.message}</p>
               </div>
               <div className={classes.nameInput}>
                 <input
@@ -51,25 +50,30 @@ const EmailSignUp = () => {
                   {...register("lastName")}
                 />
                 <label htmlFor="lastName">Last Name</label>
+                <p className={classes.error}>{errors.lastName?.message}</p>
               </div>
             </div>
           </div>
-          <div className={classes.emailContainer}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              className={classes.input}
-              {...register("email")}
-            />
-          </div>
+          <div className={classes.contactContainer}>
+            <div className={classes.emailContainer}>
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                className={classes.input}
+                {...register("email")}
+              />
+              <p className={classes.error}>{errors.email?.message}</p>
+            </div>
 
-          <div className={classes.phoneContainer}>
-            <label htmlFor="phone">Phone</label>
-            <input
-              type="number"
-              className={classes.input}
-              {...register("phone")}
-            />
+            <div className={classes.phoneContainer}>
+              <label htmlFor="phone">Phone</label>
+              <input
+                type="number"
+                className={classes.input}
+                {...register("phone")}
+              />
+              <p className={classes.error}>{errors.phone?.message}</p>
+            </div>
           </div>
 
           <div className={classes.addressContainer}>
@@ -81,6 +85,7 @@ const EmailSignUp = () => {
                 {...register("street")}
               />
               <label htmlFor="street">Street Address</label>
+              <p className={classes.error}>{errors.street?.message}</p>
             </div>
             <div className={classes.addressStreet}>
               <input
@@ -98,6 +103,7 @@ const EmailSignUp = () => {
                   {...register("city")}
                 />
                 <label htmlFor="city">City</label>
+                <p className={classes.error}>{errors.city?.message}</p>
               </div>
               <div className={classes.state}>
                 <input
@@ -106,6 +112,7 @@ const EmailSignUp = () => {
                   {...register("state")}
                 />
                 <label htmlFor="state">State / Province</label>
+                <p className={classes.error}>{errors.state?.message}</p>
               </div>
             </div>
 
@@ -116,6 +123,7 @@ const EmailSignUp = () => {
                 {...register("zip")}
               />
               <label htmlFor="zip">Postal / Zip Code</label>
+              <p className={classes.error}>{errors.zip?.message}</p>
             </div>
 
             <div className={classes.textArea}>
@@ -128,7 +136,6 @@ const EmailSignUp = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-      <DevTool control={control} />
     </>
   );
 };
