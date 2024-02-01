@@ -3,7 +3,10 @@ import classes from "./EmailSignUp.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
-import dayjs from "dayjs";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
@@ -133,7 +136,12 @@ const EmailSignUp = ({ children }) => {
 
             <div className={classes.zipCode}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                
+                <DesktopDatePicker
+                  {...register("dob")}
+                  onChange={(date) => {
+                    setValue("dob", date);
+                  }}
+                />
               </LocalizationProvider>
               {/* <label htmlFor="dob">Date of Birth</label> */}
               <p className={classes.error}>{errors.dob?.message}</p>
