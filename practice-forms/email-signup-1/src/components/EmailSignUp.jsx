@@ -3,11 +3,16 @@ import classes from "./EmailSignUp.module.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validation";
+import dayjs from "dayjs";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
-const EmailSignUp = () => {
+const EmailSignUp = ({ children }) => {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -124,6 +129,14 @@ const EmailSignUp = () => {
               />
               <label htmlFor="zip">Postal / Zip Code</label>
               <p className={classes.error}>{errors.zip?.message}</p>
+            </div>
+
+            <div className={classes.zipCode}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                
+              </LocalizationProvider>
+              {/* <label htmlFor="dob">Date of Birth</label> */}
+              <p className={classes.error}>{errors.dob?.message}</p>
             </div>
 
             <div className={classes.textArea}>

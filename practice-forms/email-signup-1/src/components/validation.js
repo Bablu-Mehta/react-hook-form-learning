@@ -21,4 +21,5 @@ export const schema = yup.object().shape({
     .min(5, "ZipCode must be at least 5 digits")
     .max(6, "ZipCode must be at most 6 digits")
     .required("Please Enter your ZipCode"),
+  dob: yup.date().typeError("Date is required").nullable(),
 });
