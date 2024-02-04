@@ -3,16 +3,29 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../formValidationSchema";
 import { countryListData } from "../../countryCodeData";
+import { DevTool } from "@hookform/devtools";
 
 function ReactHookForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
-    defaultValues: {
-      username: "Batman",
+    defaultValues: async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users/1"
+      );
+      const data = await response.json();
+      return {
+        username: data.username,
+        email: data.email,
+        gender: "",
+        password: "",
+        conformPassword: "",
+        country: "",
+      };
     },
   });
 
@@ -99,6 +112,7 @@ function ReactHookForm() {
           <button type="submit">Submit</button>
         </form>
       </div>
+      <DevTool control={control} />
     </>
 
     // <div className="Form-container">
