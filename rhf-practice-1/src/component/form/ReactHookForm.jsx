@@ -25,6 +25,10 @@ function ReactHookForm() {
         password: "",
         conformPassword: "",
         country: "",
+        social: {
+          twitter: "",
+          facebook: "",
+        },
       };
     },
   });
@@ -94,6 +98,12 @@ function ReactHookForm() {
             {...register("conformPassword")}
           />
           <p className="error">{errors.conformPassword?.message}</p>
+
+          <label htmlFor="twitter">Twitter</label>
+          <input type="text" id="twitter" {...register("social.twitter")} />
+
+          <label htmlFor="facebook">Facebook</label>
+          <input type="text" id="facebook" {...register("social.facebook")} />
 
           <div className="gender">
             <span>Gender:</span>
