@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../formValidationSchema";
@@ -11,6 +11,7 @@ function ReactHookForm() {
     handleSubmit,
     control,
     formState: { errors },
+    watch,
     reset,
   } = useForm({
     resolver: yupResolver(formSchema),
@@ -45,6 +46,20 @@ function ReactHookForm() {
     control,
   });
 
+  useEffect(() => {
+    const subscription = watch((value) => {
+      console.log(value);
+    });
+
+    return () => {
+      subscription.unsubscribe;
+    };
+  }, [watch]);
+
+  // const watchUserName = watch(["username", "email"]);
+  // const watchUserName = watch("username");
+  // const watchForm = watch();
+
   function handleCountryChange(event) {
     const selectedCountryValue = event.target.value;
     setSelectedCountry(selectedCountryValue);
@@ -68,6 +83,7 @@ function ReactHookForm() {
 
   return (
     <>
+      {/* <h2>Watched Value: {JSON.stringify(watchForm)}</h2> */}
       <div className="Form-container">
         <form
           onSubmit={handleSubmit((data, e) => onSubmit(data, e))}
