@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { formSchema } from "../../formValidationSchema";
 import { countryListData } from "../../countryCodeData";
@@ -11,6 +11,7 @@ function ReactHookForm() {
     handleSubmit,
     control,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: yupResolver(formSchema),
     defaultValues: async () => {
@@ -29,12 +30,18 @@ function ReactHookForm() {
           twitter: "",
           facebook: "",
         },
+        phoneNumber: ["", ""],
+        skills: [{ skill: "" }],
       };
     },
   });
 
   const [selectedCountry, setSelectedCountry] = useState("");
   const [countryCode, setCountryCode] = useState("");
+  const { fields, append, remove } = useFieldArray({
+    name: "skills",
+    control,
+  });
 
   function handleCountryChange(event) {
     const selectedCountryValue = event.target.value;
@@ -48,6 +55,7 @@ function ReactHookForm() {
   function onSubmit(data, e) {
     console.log("form submitted", data);
     e.target.reset();
+    reset();
   }
 
   const countryList = countryListData.map((country) => (
@@ -104,6 +112,44 @@ function ReactHookForm() {
 
           <label htmlFor="facebook">Facebook</label>
           <input type="text" id="facebook" {...register("social.facebook")} />
+
+          <label htmlFor="primary-number">Primary Number</label>
+          <input
+            type="text"
+            id="primary-number"
+            {...register("phoneNumber[0]")}
+          />
+
+          <label htmlFor="secondary-number">Secondary Number</label>
+          <input
+            type="text"
+            id="secondary-number"
+            {...register("phoneNumber[1]")}
+          />
+
+          <div>
+            <label htmlFor="skills">Enter Your Skills</label>
+            <div>
+              {fields.map((field, index) => {
+                return (
+                  <div key={field.id}>
+                    <input
+                      type="text"
+                      {...register(`skills[${index}].skill`)}
+                    />
+                    {index > 0 && (
+                      <button type="button" onClick={() => remove(index)}>
+                        X
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+              <button type="button" onClick={() => append({ skill: "" })}>
+                Add SKill
+              </button>
+            </div>
+          </div>
 
           <div className="gender">
             <span>Gender:</span>
