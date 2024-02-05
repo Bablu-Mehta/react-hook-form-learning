@@ -32,6 +32,8 @@ function ReactHookForm() {
         },
         phoneNumber: ["", ""],
         skills: [{ skill: "" }],
+        age: 0,
+        dob: new Date(),
       };
     },
   });
@@ -164,6 +166,26 @@ function ReactHookForm() {
             </div>
             <p className="error">{errors.gender?.message}</p>
           </div>
+
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            id="age"
+            {...register("age", {
+              valueAsNumber: true,
+            })}
+          />
+          <p className="error">{errors.age?.message}</p>
+
+          <label htmlFor="dob">Date of Birth</label>
+          <input
+            type="date"
+            id="dob"
+            {...register("dob", {
+              valueAsDate: true,
+            })}
+          />
+          <p className="error">{errors.dob?.message}</p>
 
           <button type="submit">Submit</button>
         </form>
